@@ -1,15 +1,18 @@
 package abstractclasses.page;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class AbstractPage {
 
-    private WebDriver driver;
+    public WebDriver driver;
+    public WebDriverWait explicitWait;
     private String pageUrl;
     private String pageUrlPattern;
 
-    public void setDriver(WebDriver driver) {
-        this.driver = driver;
+    protected AbstractPage(WebDriver webdriver, WebDriverWait webDriverWait) {
+        this.driver = webdriver;
+        this.explicitWait = webDriverWait;
     }
 
     public WebDriver getDriver() {
